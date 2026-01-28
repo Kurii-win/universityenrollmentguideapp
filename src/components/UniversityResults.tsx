@@ -65,6 +65,158 @@ export function UniversityResults({ profile, onReset, favoriteIds, onToggleFavor
       }));
     }
 
+    // For United States, return only the 4 specific universities
+    if (profile.country === 'United States') {
+      const usUniversityIds = ['1', '2', '3', '4'];
+      const usUniversities = universities.filter(uni => 
+        usUniversityIds.includes(uni.id)
+      );
+      
+      return usUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
+    // For United Kingdom, return only the 4 specific universities
+    if (profile.country === 'United Kingdom') {
+      const ukUniversityIds = ['5', '6', '7', '34'];
+      const ukUniversities = universities.filter(uni => 
+        ukUniversityIds.includes(uni.id)
+      );
+      
+      return ukUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
+    // For Japan, return only the 4 specific universities
+    if (profile.country === 'Japan') {
+      const japanUniversityIds = ['18', '22', '35', '36'];
+      const japanUniversities = universities.filter(uni => 
+        japanUniversityIds.includes(uni.id)
+      );
+      
+      return japanUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
+    // For South Korea, return only the 4 specific universities
+    if (profile.country === 'South Korea') {
+      const koreaUniversityIds = ['19', '23', '37', '38'];
+      const koreaUniversities = universities.filter(uni => 
+        koreaUniversityIds.includes(uni.id)
+      );
+      
+      return koreaUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
+    // For China, return only the 4 specific universities
+    if (profile.country === 'China') {
+      const chinaUniversityIds = ['24', '25', '39', '40'];
+      const chinaUniversities = universities.filter(uni => 
+        chinaUniversityIds.includes(uni.id)
+      );
+      
+      return chinaUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
+    // For Malaysia, return only the 4 specific universities
+    if (profile.country === 'Malaysia') {
+      const malaysiaUniversityIds = ['28', '29', '41', '42'];
+      const malaysiaUniversities = universities.filter(uni => 
+        malaysiaUniversityIds.includes(uni.id)
+      );
+      
+      return malaysiaUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
+    // For Australia, return only the 4 specific universities
+    if (profile.country === 'Australia') {
+      const australiaUniversityIds = ['10', '11', '43', '44'];
+      const australiaUniversities = universities.filter(uni => 
+        australiaUniversityIds.includes(uni.id)
+      );
+      
+      return australiaUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
+    // For Canada, return only the 4 specific universities
+    if (profile.country === 'Canada') {
+      const canadaUniversityIds = ['8', '9', '45', '46'];
+      const canadaUniversities = universities.filter(uni => 
+        canadaUniversityIds.includes(uni.id)
+      );
+      
+      return canadaUniversities.map(uni => ({
+        ...uni,
+        matchScore: 95,
+        matchReasons: [
+          'Located in your preferred country',
+          'Meets your profile requirements',
+          'Suitable for international students'
+        ],
+        admissionChance: 'High' as const
+      }));
+    }
+
     // Original matching logic for other countries
     const matched: UniversityMatch[] = [];
 

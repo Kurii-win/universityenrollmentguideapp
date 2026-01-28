@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { HomePage } from './components/HomePage';
 import { CompareUniversities } from './components/CompareUniversities';
 import { AcademicProfile } from './components/AcademicProfile';
-import { Home, GitCompare, User } from 'lucide-react';
+import { Login } from './components/Login';
+import { Home, GitCompare, Search } from 'lucide-react';
 
 export interface StudentProfile {
   gpa: number;
@@ -27,7 +28,7 @@ export interface University {
   intakePeriods?: string[];
 }
 
-type ActivePage = 'home' | 'compare' | 'profile';
+type ActivePage = 'home' | 'compare' | 'profile' | 'login';
 
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
@@ -45,7 +46,13 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 pb-20">
       <div className="container mx-auto px-4 py-6 max-w-md">
         {/* Render active page */}
-        {activePage === 'home' && <HomePage />}
+        {activePage === 'home' && (
+          <HomePage 
+            favoriteIds={favoriteIds}
+            onToggleFavorite={toggleFavorite}
+            onNavigateToLogin={() => setActivePage('login')}
+          />
+        )}
         {activePage === 'compare' && (
           <CompareUniversities 
             favoriteIds={favoriteIds}
@@ -57,6 +64,9 @@ export default function App() {
             favoriteIds={favoriteIds}
             onToggleFavorite={toggleFavorite}
           />
+        )}
+        {activePage === 'login' && (
+          <Login onBack={() => setActivePage('home')} />
         )}
       </div>
 
@@ -104,8 +114,8 @@ export default function App() {
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              <User className="w-6 h-6" />
-              <span className="text-xs font-medium">Profile</span>
+              <Search className="w-6 h-6" />
+              <span className="text-xs font-medium">Search Uni</span>
             </button>
           </div>
         </div>
