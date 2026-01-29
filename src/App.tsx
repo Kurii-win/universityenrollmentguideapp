@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { HomePage } from './components/HomePage';
 import { CompareUniversities } from './components/CompareUniversities';
 import { AcademicProfile } from './components/AcademicProfile';
+import { Favorites } from './components/Favorites';
 import { Login } from './components/Login';
-import { Home, GitCompare, Search } from 'lucide-react';
+import { Home, GitCompare, Target, Heart } from 'lucide-react';
 
 export interface StudentProfile {
   gpa: number;
@@ -28,7 +29,7 @@ export interface University {
   intakePeriods?: string[];
 }
 
-type ActivePage = 'home' | 'compare' | 'profile' | 'login';
+type ActivePage = 'home' | 'compare' | 'match' | 'favorites' | 'login';
 
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
@@ -56,11 +57,17 @@ export default function App() {
         {activePage === 'compare' && (
           <CompareUniversities 
             favoriteIds={favoriteIds}
-            onNavigateToProfile={() => setActivePage('profile')}
+            onNavigateToProfile={() => setActivePage('match')}
           />
         )}
-        {activePage === 'profile' && (
+        {activePage === 'match' && (
           <AcademicProfile 
+            favoriteIds={favoriteIds}
+            onToggleFavorite={toggleFavorite}
+          />
+        )}
+        {activePage === 'favorites' && (
+          <Favorites 
             favoriteIds={favoriteIds}
             onToggleFavorite={toggleFavorite}
           />
@@ -73,7 +80,7 @@ export default function App() {
       {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-lg">
         <div className="container mx-auto px-4 max-w-md">
-          <div className="grid grid-cols-3 gap-2 py-3">
+          <div className="grid grid-cols-4 gap-2 py-3">
             {/* Compare Button */}
             <button
               onClick={() => setActivePage('compare')}
@@ -105,17 +112,30 @@ export default function App() {
               <span className="text-xs font-medium">Home</span>
             </button>
 
-            {/* Profile Button */}
+            {/* Match Button */}
             <button
-              onClick={() => setActivePage('profile')}
+              onClick={() => setActivePage('match')}
               className={`flex flex-col items-center gap-1 py-2 rounded-xl transition-all ${
-                activePage === 'profile'
+                activePage === 'match'
                   ? 'text-green-600 bg-green-50'
                   : 'text-gray-500 hover:text-gray-700'
               }`}
             >
-              <Search className="w-6 h-6" />
-              <span className="text-xs font-medium">Search Uni</span>
+              <Target className="w-6 h-6" />
+              <span className="text-xs font-medium">Match</span>
+            </button>
+
+            {/* Favorites Button */}
+            <button
+              onClick={() => setActivePage('favorites')}
+              className={`flex flex-col items-center gap-1 py-2 rounded-xl transition-all ${
+                activePage === 'favorites'
+                  ? 'text-green-600 bg-green-50'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              <Heart className="w-6 h-6" />
+              <span className="text-xs font-medium">Favorites</span>
             </button>
           </div>
         </div>

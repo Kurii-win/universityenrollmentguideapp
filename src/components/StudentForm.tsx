@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StudentProfile } from '../App';
-import { DollarSign, Globe, TrendingUp, Languages, X } from 'lucide-react';
+import { DollarSign, Globe, TrendingUp, Languages, X, GraduationCap } from 'lucide-react';
 
 interface StudentFormProps {
   onSubmit: (profile: StudentProfile) => void;
@@ -12,12 +12,22 @@ interface CertificationLevel {
 }
 
 export function StudentForm({ onSubmit }: StudentFormProps) {
+  const [academicBackground, setAcademicBackground] = useState('');
   const [gpa, setGpa] = useState('');
   const [country, setCountry] = useState('');
   const [budget, setBudget] = useState('');
   const [certifications, setCertifications] = useState<string[]>([]);
   const [showLevelModal, setShowLevelModal] = useState(false);
   const [selectedCert, setSelectedCert] = useState('');
+
+  const academicBackgrounds = [
+    'Grade-12',
+    'SAT',
+    'IGCSE A level',
+    'IGCSE O level',
+    'OSSD',
+    'GED'
+  ];
 
   const countries = [
     'United States',
@@ -95,7 +105,7 @@ export function StudentForm({ onSubmit }: StudentFormProps) {
     onSubmit(profile);
   };
 
-  const isFormValid = gpa && country && budget;
+  const isFormValid = academicBackground && gpa && country && budget;
 
   return (
     <>
@@ -103,6 +113,25 @@ export function StudentForm({ onSubmit }: StudentFormProps) {
         <h2 className="text-xl font-bold text-gray-900 mb-5">Your Academic Profile</h2>
         
         <div className="space-y-5">
+          {/* Academic Background */}
+          <div>
+            <label className="flex items-center gap-1.5 text-xs font-medium text-gray-700 mb-2">
+              <GraduationCap className="w-3.5 h-3.5" />
+              Academic Background
+            </label>
+            <select
+              value={academicBackground}
+              onChange={(e) => setAcademicBackground(e.target.value)}
+              className="w-full px-3 py-2.5 text-sm border border-gray-300 rounded-xl focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              required
+            >
+              <option value="">Select your academic background</option>
+              {academicBackgrounds.map((bg) => (
+                <option key={bg} value={bg}>{bg}</option>
+              ))}
+            </select>
+          </div>
+
           {/* GPA */}
           <div>
             <label className="flex items-center gap-1.5 text-xs font-medium text-gray-700 mb-2">

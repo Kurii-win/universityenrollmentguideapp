@@ -514,6 +514,10 @@
     left: calc(var(--spacing) * 3);
   }
 
+  .left-7 {
+    left: calc(var(--spacing) * 7);
+  }
+
   .z-50 {
     z-index: 50;
   }
@@ -750,6 +754,10 @@
 
   .grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .flex-col {
@@ -1139,6 +1147,10 @@
 
   .pb-20 {
     padding-bottom: calc(var(--spacing) * 20);
+  }
+
+  .pl-10 {
+    padding-left: calc(var(--spacing) * 10);
   }
 
   .pl-11 {
