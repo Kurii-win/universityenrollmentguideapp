@@ -1,5 +1,5 @@
 import { University } from '../App';
-import { getUniversityImage } from '@/assets/universityImages';
+
 export function getUniversities(): University[] {
   return [
     // United States Universities
@@ -15,7 +15,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory: IELTS/TOEFL required)',
       scholarships: 'Merit-based scholarships for international students (e.g., New American University Scholarship) offering partial tuition reductions based on academic performance',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('asu.jpg'),
+      image: 'https://images.unsplash.com/photo-1622397333309-3056849bc70b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXJ2YXJkJTIwdW5pdmVyc2l0eXxlbnwxfHx8fDE3Njk1MzQ2Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Large public research university offering competitive scholarships, with tuition varying by major (STEM programs higher).'
     },
     {
@@ -30,7 +30,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory: IELTS/TOEFL required)',
       scholarships: 'Limited merit-based and need-based aid available for international undergraduates; most awards are partial and highly competitive',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('ucla.jpg'),
+      image: 'https://images.unsplash.com/photo-1574893267830-a6989eac05aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaXQlMjB0ZWNobm9sb2d5JTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NTcyMTE3fDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Extremely competitive admission for international students with strong holistic review process, limited scholarship coverage.'
     },
     {
@@ -45,7 +45,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT (required), OSSD, IGCSE O Level, IGCSE A Level (TOEFL iBT ≥79 or IELTS ≥6.5 mandatory)',
       scholarships: 'UT Austin offers various scholarships through Texas Global and departments, typically $500-$6,500 per award for international students',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('tex.jpg'),
+      image: 'https://images.unsplash.com/photo-1676354555185-df7a1eb39608?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdGFuZm9yZCUyMGNhbXB1c3xlbnwxfHx8fDE3Njk1NzIxMTd8MA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Competitive public research university requiring strong academic records and standardized test scores for international applicants.'
     },
     {
@@ -60,7 +60,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT (optional/test-flexible), OSSD, IGCSE O Level, IGCSE A Level (English proficiency required: IELTS/TOEFL)',
       scholarships: 'NYU offers limited need-based financial aid and a small number of merit-based scholarships for international students; highly competitive',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('nyu.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Highly competitive urban university with limited scholarship opportunities and test-flexible admissions policy.'
     },
 
@@ -77,7 +77,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Oxford Trust Awards, college-specific bursaries for outstanding international applicants',
       intakePeriods: ['September', 'January'],
-      image: getUniversityImage('ox.jpg'),
+      image: 'https://images.unsplash.com/photo-1702238230256-f798027de7c9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxveGZvcmQlMjB1bml2ZXJzaXR5JTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NTcyMTE3fDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Very strong academic results required. May require interview and written work. Funding applications often separate and highly competitive.'
     },
     {
@@ -92,7 +92,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Gates Cambridge Scholarships & Cambridge Trust awards for outstanding international applicants',
       intakePeriods: ['October', 'January'],
-      image: getUniversityImage('cam.jpg'),
+      image: 'https://images.unsplash.com/photo-1623632306901-e509641e7191?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjYW1icmlkZ2UlMjB1bml2ZXJzaXR5fGVufDF8fHx8MTc2OTU3MjExN3ww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'High academic achievement required. Some courses require additional tests/interviews. College-specific offers possible, scholarship deadlines often earlier.'
     },
     {
@@ -107,7 +107,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Imperial President\'s Scholarships & faculty-level awards for high achievers; Commonwealth & external awards',
       intakePeriods: ['September', 'January'],
-      image: getUniversityImage('icl.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Strong STEM focus with science/engineering programs. London campus fees higher than many UK unis, limited undergraduate scholarships.'
     },
     {
@@ -122,7 +122,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'UCL Global Undergraduate Scholarships & merit awards for international applicants',
       intakePeriods: ['September', 'January'],
-      image: getUniversityImage('ucl.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Competitive GPA required, certain programs may require additional tests/portfolio. London location adds to overall costs.'
     },
 
@@ -139,7 +139,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT (optional), OSSD (English proficiency mandatory - UBC English Language Admission Standard)',
       scholarships: 'International Major Entrance Scholarships CAD 10,000-20,000/year and International Scholars Program for exceptional students covering significant tuition support',
       intakePeriods: ['January', 'September'],
-      image: getUniversityImage('columbia.jpg'),
+      image: 'https://images.unsplash.com/photo-1618255630366-f402c45736f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwdG9yb250byUyMGNhbXB1c3xlbnwxfHx8fDE3Njk1NzIxMTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Competitive admission - meeting minimum grades does not guarantee acceptance. International applicants must meet degree-specific prerequisites (e.g., math/science for engineering).'
     },
     {
@@ -154,7 +154,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level + A Level (English proficiency mandatory: IELTS/TOEFL)',
       scholarships: 'Multiple scholarships and awards for international students based on academic merit and leadership, accessible through a single application',
       intakePeriods: ['January', 'September'],
-      image: getUniversityImage('alberta.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Final offers often depend on final Grade 12 results. Must meet program-specific subject requirements. Applications due Dec-Mar prior to Fall term start.'
     },
     {
@@ -169,7 +169,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT (optional), OSSD, IGCSE O Level + A Level (English proficiency mandatory: IELTS Academic 6.5 or equivalent)',
       scholarships: 'International Entrance Scholarships up to ~20,000 CAD renewable for undergraduates based on merit and GPA',
       intakePeriods: ['January', 'September'],
-      image: getUniversityImage('caligary.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Renowned for co-op programs and experiential learning. Some programs require subject prerequisites (e.g., math/science). Scholarship continuation requires maintaining minimum GPA.'
     },
     {
@@ -184,7 +184,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory: IELTS/TOEFL/PTE)',
       scholarships: 'Entrance and merit-based awards for international students (thousands of CAD) that can significantly reduce overall cost',
       intakePeriods: ['January', 'September'],
-      image: getUniversityImage('rg.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Known for experiential learning and co-op opportunities with supportive environment. Must submit certified transcripts and credential assessments. Meet specific program prerequisites.'
     },
 
@@ -201,7 +201,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency often mandatory: IELTS/TOEFL typically required)',
       scholarships: 'Melbourne International Undergraduate Scholarship offers partial to full tuition awards based on academic merit',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('mu.jpg'),
+      image: 'https://images.unsplash.com/photo-1609036567523-c804ca6b22e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWxib3VybmUlMjB1bml2ZXJzaXR5fGVufDF8fHx8MTc2OTU3MjExOHww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Australia\'s leading university with strong research output. Some programs require portfolios/interviews. Sufficient finances shown for enrolment required.'
     },
     {
@@ -216,7 +216,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Vice-Chancellor\'s International Scholarships available; merit-based partial tuition awards offered yearly',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('sd.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Competitive secondary school grades required. Portfolio/interview for selected courses (creative, design). Some programs have additional prerequisites.'
     },
     {
@@ -231,7 +231,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Monash International Merit Scholarships (e.g., AUD 10,000 per year) for high achievers',
       intakePeriods: ['January', 'July'],
-      image: getUniversityImage('mu.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Portfolio/test may be required for art/architecture fields. Competitive entry for engineering/health programs.'
     },
     {
@@ -246,7 +246,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'ANU Global Diversity Scholarship and Chancellor\'s International Scholarship available for high academic achievers',
       intakePeriods: ['February', 'July'],
-      image: getUniversityImage('anu.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Research-intensive university in Canberra with strong government and policy connections. Some research programs require proposals/reference letters.'
     },
 
@@ -263,7 +263,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency may be required)',
       scholarships: 'Merit scholarships covering 100% or 50% of course fees for new diploma students and academic/excellence awards (e.g., S$15,000) for degree students',
       intakePeriods: ['January', 'April', 'October'],
-      image: getUniversityImage('sim.jpg'),
+      image: 'https://images.unsplash.com/photo-1633111126270-f50f378fde68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjB1bml2ZXJzaXR5fGVufDF8fHx8MTc2OTU3MjExOXww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Premier private education provider offering diverse programmes with partner universities worldwide.'
     },
     {
@@ -278,7 +278,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (IELTS ≥ 6.0 mandatory)',
       scholarships: 'Merit scholarships up to S$20,000 and competitive awards for international students based on academic achievement',
       intakePeriods: ['January'],
-      image: getUniversityImage('jcu.jpg'),
+      image: 'https://images.unsplash.com/photo-1633111126270-f50f378fde68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjB1bml2ZXJzaXR5fGVufDF8fHx8MTc2OTU3MjExOXww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Australian university campus offering globally recognized degrees in tropical Singapore.'
     },
     {
@@ -293,7 +293,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, OSSD, IGCSE O Level, IGCSE A Level (English proficiency required)',
       scholarships: 'Occasional partial tuition fee discounts or promotional scholarships for international students',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('kp.jpg'),
+      image: 'https://images.unsplash.com/photo-1633111126270-f50f378fde68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjB1bml2ZXJzaXR5fGVufDF8fHx8MTc2OTU3MjExOXww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Established private education institution offering degrees in partnership with overseas universities.'
     },
     {
@@ -308,7 +308,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, IGCSE O Level, IGCSE A Level (English proficiency required)',
       scholarships: 'Limited merit-based scholarships and bursaries for international students based on academic performance',
       intakePeriods: ['January'],
-      image: getUniversityImage('poly.jpg'),
+      image: 'https://images.unsplash.com/photo-1633111126270-f50f378fde68?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzaW5nYXBvcmUlMjB1bml2ZXJzaXR5fGVufDF8fHx8MTc2OTU3MjExOXww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Leading polytechnic offering diploma and advanced diploma programmes with strong industry connections.'
     },
 
@@ -325,7 +325,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory for English-taught programs: TOEFL/IELTS)',
       scholarships: 'New Student Scholarship: 1/3 to full tuition reduction for first year; Adachi Scholarship (Southeast Asian/African students): full tuition & fees for first year',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('sop.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Tokyo-based university with strong international programs. Additional scholarships available during study. Student visa (Certificate of Eligibility) required.'
     },
     {
@@ -340,7 +340,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'SAT, OSSD, IGCSE A Level (English proficiency mandatory: IELTS or TOEFL)',
       scholarships: 'Limited merit-based and need-based scholarships including partial tuition reductions and monthly stipends; awards are competitive',
       intakePeriods: ['April'],
-      image: getUniversityImage('wa.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Prestigious private university requiring strong academic record. Some programs may have limited September intake. Scholarship renewal requires satisfactory performance.'
     },
     {
@@ -355,7 +355,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'SAT, OSSD, IGCSE A Level (English proficiency mandatory: IELTS or TOEFL)',
       scholarships: 'Competitive scholarships including partial tuition reductions and monthly stipends; limited awards based on academic merit and financial need',
       intakePeriods: ['April'],
-      image: getUniversityImage('ke.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Elite private university requiring strong academic performance. Additional assessments (essays, interviews, aptitude screening) may be required. Limited September intake.'
     },
     {
@@ -370,7 +370,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory: TOEFL/IELTS/Duolingo; entrance exam required)',
       scholarships: 'Tuition reduction scholarships available (20%/50%/100% based on merit) for international students; additional external scholarships (e.g., JASSO) may be pursued',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('ru.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Kyoto/Osaka-based university with competitive scholarships. Entrance exam required (special international selection or EJU as applicable).'
     },
 
@@ -387,7 +387,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory for English-taught programs: TOEFL/IELTS)',
       scholarships: 'Multiple admission scholarships available including full tuition waiver for first semester with possible continuation based on GPA, language proficiency, and admission ranking',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('kyu.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Seoul & Suwon campuses. Scholarship continuation requires maintaining GPA or meeting language score conditions (TOPIK for Korean-taught, English scores for English tracks).'
     },
     {
@@ -402,7 +402,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory for English-taught programs: TOEFL/IELTS)',
       scholarships: 'Merit-based scholarships including partial to full tuition reduction (first semester; continuation depends on GPA)',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('hu.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Seoul / ERICA campuses. Tuition varies by major (engineering and science programs higher). Successful document screening/interview required for some programs.'
     },
     {
@@ -417,7 +417,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'GED, SAT, OSSD, IGCSE A Level (English proficiency mandatory: IELTS or TOEFL)',
       scholarships: 'Merit-based scholarships including partial to full tuition waivers; awards are competitive and based mainly on academic excellence',
       intakePeriods: ['March'],
-      image: getUniversityImage('yo.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Prestigious private university. Additional documents (essays, recommendation letters, interviews) may be required. Some international programs offer limited September intake.'
     },
     {
@@ -432,7 +432,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'GED, SAT, OSSD, IGCSE A Level (English proficiency mandatory: IELTS or TOEFL)',
       scholarships: 'Competitive merit-based scholarships including partial to full tuition fee waivers; awards are limited and highly competitive',
       intakePeriods: ['March'],
-      image: getUniversityImage('ku.jpg'),
+      image: 'https://images.unsplash.com/photo-1642130935796-1409d7e075dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwYnVpbGRpbmd8ZW58MXx8fHwxNzY5NDgwOTAwfDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Elite university with strong academic standards. Additional requirements (essays, recommendation letters, interviews) may apply. Some programs offer limited September intake.'
     },
 
@@ -449,7 +449,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Chinese Government Scholarship (CSC) covers full/partial tuition and stipend for international students',
       intakePeriods: ['September', 'February'],
-      image: getUniversityImage('pk.jpg'),
+      image: 'https://images.unsplash.com/photo-1691758070204-d684a5187d81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZWtpbmclMjB1bml2ZXJzaXR5JTIwY2hpbmF8ZW58MXx8fHwxNzY5NjA4Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Premier comprehensive university with strong humanities and sciences programs. Some faculties require additional application materials or tests.'
     },
     {
@@ -464,7 +464,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Tsinghua offers merit scholarships and CSC funding with full or partial tuition coverage',
       intakePeriods: ['September', 'February'],
-      image: getUniversityImage('ts.jpg'),
+      image: 'https://images.unsplash.com/photo-1691758070204-d684a5187d81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZWtpbmclMjB1bml2ZXJzaXR5JTIwY2hpbmF8ZW58MXx8fHwxNzY5NjA4Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Top university for engineering and technology with extensive international programs. English-taught programs may require English language proof.'
     },
     {
@@ -479,7 +479,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Multiple scholarships including CSC and university-level awards for international students',
       intakePeriods: ['September', 'February'],
-      image: getUniversityImage('fu.jpg'),
+      image: 'https://images.unsplash.com/photo-1691758070204-d684a5187d81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZWtpbmclMjB1bml2ZXJzaXR5JTIwY2hpbmF8ZW58MXx8fHwxNzY5NjA4Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Shanghai-based comprehensive university with strong academic programs. Some programs may need additional documents, faculty-specific requirements possible.'
     },
     {
@@ -494,7 +494,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'CSC and university scholarships provide tuition support for high achievers',
       intakePeriods: ['September', 'February'],
-      image: getUniversityImage('sjt.jpg'),
+      image: 'https://images.unsplash.com/photo-1691758070204-d684a5187d81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwZWtpbmclMjB1bml2ZXJzaXR5JTIwY2hpbmF8ZW58MXx8fHwxNzY5NjA4Mjk4fDA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Top engineering and medical university. Competitive academic record required, additional faculty criteria may apply. English programs may ask for language proof.'
     },
 
@@ -511,7 +511,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Limited merit-based tuition discounts available for high-performing international students',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('au.jpg'),
+      image: 'https://images.unsplash.com/photo-1725256455511-6d91e8049dd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwdGhhaWxhbmQlMjBiYW5na29rfGVufDF8fHx8MTc2OTYwODI5OHww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Leading private university with strong business and IT programs, offering quality English-taught courses.'
     },
     {
@@ -526,7 +526,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Entrance scholarships and tuition reductions offered for international students depending on grades',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('ru.jpg'),
+      image: 'https://images.unsplash.com/photo-1725256455511-6d91e8049dd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwdGhhaWxhbmQlMjBiYW5na29rfGVufDF8fHx8MTc2OTYwODI5OHww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Large private university with many English-taught programs and health-related programs with stricter entry.'
     },
     {
@@ -541,7 +541,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Partial tuition scholarships available for international students with strong academic background',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('bu.jpg'),
+      image: 'https://images.unsplash.com/photo-1725256455511-6d91e8049dd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwdGhhaWxhbmQlMjBiYW5na29rfGVufDF8fHx8MTc2OTYwODI5OHww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Strong focus on business, media, and communication with practical-oriented curriculum and creative programs.'
     },
     {
@@ -556,7 +556,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level',
       scholarships: 'Thammasat offers merit-based and faculty-level scholarships for international students',
       intakePeriods: ['August', 'January'],
-      image: getUniversityImage('tm.jpg'),
+      image: 'https://images.unsplash.com/photo-1725256455511-6d91e8049dd8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwdGhhaWxhbmQlMjBiYW5na29rfGVufDF8fHx8MTc2OTYwODI5OHww&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Public university with strong academic reputation, competitive programs in economics and political science.'
     },
 
@@ -573,7 +573,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency may be required per programme: IELTS/TOEFL)',
       scholarships: 'Partial/full tuition waivers and education grants based on academic achievement and leadership attributes for international applicants (limited and competitive)',
       intakePeriods: ['January', 'September', 'April'],
-      image: getUniversityImage('ucsi.jpg'),
+      image: 'https://images.unsplash.com/photo-1562227678-3f9e5e74c70b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwbWFsYXlzaWElMjBrdWFsYSUyMGx1bXB1cnxlbnwxfHx8fDE3Njk2MDgyOTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Scholarships require maintaining academic performance and may need interviews/extracurricular records. Tuition varies widely by programme and duration.'
     },
     {
@@ -588,7 +588,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency not mandatory if programme entry criteria met)',
       scholarships: 'International Education Scholarship up to 45% tuition waiver for new international students based on merit and early application (limited, first-come first-served)',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('inti.jpg'),
+      image: 'https://images.unsplash.com/photo-1562227678-3f9e5e74c70b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwbWFsYXlzaWElMjBrdWFsYSUyMGx1bXB1cnxlbnwxfHx8fDE3Njk2MDgyOTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Scholarships awarded on first-come, first-served basis requiring academic progress maintenance. Fees apply only to tuition, not admin/visa/other costs.'
     },
     {
@@ -603,7 +603,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, IGCSE O Level, IGCSE A Level, GED (English proficiency mandatory: IELTS/TOEFL/PTE; foundation/year-zero may be required)',
       scholarships: 'Merit Awards 10%-30% tuition discount; some awards reach up to 50% waiver on tuition depending on qualifications and academic achievement',
       intakePeriods: ['January', 'March', 'July', 'September'],
-      image: getUniversityImage('apu.jpg'),
+      image: 'https://images.unsplash.com/photo-1562227678-3f9e5e74c70b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwbWFsYXlzaWElMjBrdWFsYSUyMGx1bXB1cnxlbnwxfHx8fDE3Njk2MDgyOTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Maintain minimum CGPA to retain scholarship. Some programmes require credit passes in Mathematics or relevant subjects. November intake available for some programmes.'
     },
     {
@@ -618,7 +618,7 @@ export function getUniversities(): University[] {
       admissionInfo: 'Myanmar Grade-12 certificate, GED, SAT, OSSD, IGCSE O Level, IGCSE A Level (English proficiency mandatory: IELTS/TOEFL/PTE)',
       scholarships: 'Merit, Talent, Sports, Excellence, and World Class scholarships with tuition waivers up to 70% or even 100% depending on criteria and achievements',
       intakePeriods: ['January', 'August'],
-      image: getUniversityImage('ty.jpg'),
+      image: 'https://images.unsplash.com/photo-1562227678-3f9e5e74c70b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwbWFsYXlzaWElMjBrdWFsYSUyMGx1bXB1cnxlbnwxfHx8fDE3Njk2MDgyOTh8MA&ixlib=rb-4.1.0&q=80&w=1080',
       description: 'Maintain CGPA to retain scholarship. Some programmes require specific subject credits (e.g., Mathematics/Science). Scholarship deadlines tied to intake periods.'
     }
   ];

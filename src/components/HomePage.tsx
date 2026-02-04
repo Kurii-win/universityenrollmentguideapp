@@ -3,6 +3,7 @@ import { getUniversities } from '../data/universities';
 import { UniversityCard } from './UniversityCard';
 import { University } from '../App';
 import { useState, useEffect } from 'react';
+import { currencies } from '../utils/currency';
 
 interface UniversityMatch extends University {
   matchScore: number;
@@ -14,9 +15,11 @@ interface HomePageProps {
   favoriteIds: string[];
   onToggleFavorite: (id: string) => void;
   onNavigateToLogin: () => void;
+  currency: string;
+  onCurrencyChange: (currency: string) => void;
 }
 
-export function HomePage({ favoriteIds, onToggleFavorite, onNavigateToLogin }: HomePageProps) {
+export function HomePage({ favoriteIds, onToggleFavorite, onNavigateToLogin, currency, onCurrencyChange }: HomePageProps) {
   const [featuredUniversities, setFeaturedUniversities] = useState<UniversityMatch[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -117,9 +120,24 @@ export function HomePage({ favoriteIds, onToggleFavorite, onNavigateToLogin }: H
 
       {/* Featured Section */}
       <div className="mb-6">
-        <h2 className="text-lg font-bold text-gray-900 mb-4 px-1">
-          {searchQuery.trim() ? `Search Results (${filteredUniversities.length})` : 'Featured Universities'}
-        </h2>
+        <div className="flex items-center justify-between mb-4 px-1">
+          <h2 className="text-lg font-bold text-gray-900">
+            {searchQuery.trim() ? `Search Results (${filteredUniversities.length})` : 'Featured Universities'}
+          </h2>
+          
+          {/* Currency Selector */}
+          <select
+            value={currency}
+            onChange={(e) => onCurrencyChange(e.target.value)}
+            className="px-2 py-1 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white font-medium text-gray-700"
+          >
+            {currencies.map((curr) => (
+              <option key={curr.code} value={curr.code}>
+                {curr.code}
+              </option>
+            ))}
+          </select>
+        </div>
         
         {filteredUniversities.length === 0 ? (
           <div className="bg-white rounded-3xl shadow-lg p-8 text-center">
@@ -137,6 +155,7 @@ export function HomePage({ favoriteIds, onToggleFavorite, onNavigateToLogin }: H
                 university={uni}
                 isFavorite={favoriteIds.includes(uni.id)}
                 onToggleFavorite={onToggleFavorite}
+                currency={currency}
               />
             ))}
           </div>

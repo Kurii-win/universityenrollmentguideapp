@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { StudentProfile } from '../App';
 import { DollarSign, Globe, TrendingUp, Languages, X, GraduationCap } from 'lucide-react';
+import { currencies, currencySymbols } from '../utils/currency';
 
 interface StudentFormProps {
   onSubmit: (profile: StudentProfile) => void;
+  currency: string;
+  onCurrencyChange: (currency: string) => void;
 }
 
 interface CertificationLevel {
@@ -11,7 +14,7 @@ interface CertificationLevel {
   level: string;
 }
 
-export function StudentForm({ onSubmit }: StudentFormProps) {
+export function StudentForm({ onSubmit, currency, onCurrencyChange }: StudentFormProps) {
   const [academicBackground, setAcademicBackground] = useState('');
   const [gpa, setGpa] = useState('');
   const [country, setCountry] = useState('');
@@ -42,21 +45,28 @@ export function StudentForm({ onSubmit }: StudentFormProps) {
     'Canada'
   ];
 
-  const budgetRanges = [
-    'Under $10,000',
-    '$10,000 - $25,000',
-    '$25,000 - $50,000',
-    '$50,000+',
-    'No Preference'
-  ];
+  // Get currency symbol
+  const symbol = currencySymbols[currency] || '$';
+
+  // Budget ranges with currency conversion
+  const getBudgetRanges = () => {
+    const baseBudget = [
+      { label: `Under ${symbol}10,000`, value: 'Under $10,000' },
+      { label: `${symbol}10,000 - ${symbol}25,000`, value: '$10,000 - $25,000' },
+      { label: `${symbol}25,000 - ${symbol}50,000`, value: '$25,000 - $50,000' },
+      { label: `${symbol}50,000+`, value: '$50,000+' },
+      { label: 'No Preference', value: 'No Preference' }
+    ];
+    return baseBudget;
+  };
 
   const certificationOptions = [
-    'JLPT',
-    'TOEFL',
-    'IELTS',
-    'HSK',
-    'TOPIK',
-    'Duolingo'
+    { name: 'JLPT', enabledFor: 'Japan' },
+    { name: 'TOEFL', enabledFor: 'all' },
+    { name: 'IELTS', enabledFor: 'all' },
+    { name: 'HSK', enabledFor: 'China' },
+    { name: 'TOPIK', enabledFor: 'South Korea' },
+    { name: 'Duolingo', enabledFor: 'all' }
   ];
 
   const certificationLevels: { [key: string]: string[] } = {
@@ -68,15 +78,24 @@ export function StudentForm({ onSubmit }: StudentFormProps) {
     'Duolingo': ['100', '110', '120', '130', '140', '150', '160']
   };
 
-  const handleCertificationClick = (cert: string) => {
+  // Check if certification is enabled based on selected country
+  const isCertEnabled = (certName: string, enabledFor: string) => {
+    if (enabledFor === 'all') return true;
+    return country === enabledFor;
+  };
+
+  const handleCertificationClick = (certName: string, enabledFor: string) => {
+    // Don't allow click if not enabled for this country
+    if (!isCertEnabled(certName, enabledFor)) return;
+
     // Check if already has this certification
-    const hasThisCert = certifications.some(c => c.startsWith(cert));
+    const hasThisCert = certifications.some(c => c.startsWith(certName));
     if (hasThisCert) {
       // Remove all certifications with this name
-      setCertifications(certifications.filter(c => !c.startsWith(cert)));
+      setCertifications(certifications.filter(c => !c.startsWith(certName)));
     } else {
       // Show level selection modal
-      setSelectedCert(cert);
+      setSelectedCert(certName);
       setShowLevelModal(true);
     }
   };
@@ -110,7 +129,22 @@ export function StudentForm({ onSubmit }: StudentFormProps) {
   return (
     <>
       <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-lg p-6">
-        <h2 className="text-xl font-bold text-gray-900 mb-5">Your Academic Profile</h2>
+        <div className="flex items-center justify-between mb-5">
+          <h2 className="text-xl font-bold text-gray-900">Your Academic Profile</h2>
+          
+          {/* Currency Selector */}
+          <select
+            value={currency}
+            onChange={(e) => onCurrencyChange(e.target.value)}
+            className="px-2 py-1 text-xs border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white font-medium text-gray-700"
+          >
+            {currencies.map((curr) => (
+              <option key={curr.code} value={curr.code}>
+                {curr.code}
+              </option>
+            ))}
+          </select>
+        </div>
         
         <div className="space-y-5">
           {/* Academic Background */}
@@ -183,8 +217,8 @@ export function StudentForm({ onSubmit }: StudentFormProps) {
               required
             >
               <option value="">Select budget range</option>
-              {budgetRanges.map((b) => (
-                <option key={b} value={b}>{b}</option>
+              {getBudgetRanges().map((b) => (
+                <option key={b.value} value={b.value}>{b.label}</option>
               ))}
             </select>
           </div>
@@ -196,20 +230,28 @@ export function StudentForm({ onSubmit }: StudentFormProps) {
               Language Certifications (Optional)
             </label>
             <div className="grid grid-cols-3 gap-2">
-              {certificationOptions.map((cert) => (
-                <button
-                  key={cert}
-                  type="button"
-                  onClick={() => handleCertificationClick(cert)}
-                  className={`px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                    isCertSelected(cert)
-                      ? 'bg-green-500 text-white shadow-md shadow-green-200'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-                >
-                  {cert}
-                </button>
-              ))}
+              {certificationOptions.map((cert) => {
+                const isEnabled = isCertEnabled(cert.name, cert.enabledFor);
+                const isSelected = isCertSelected(cert.name);
+                
+                return (
+                  <button
+                    key={cert.name}
+                    type="button"
+                    onClick={() => handleCertificationClick(cert.name, cert.enabledFor)}
+                    disabled={!isEnabled}
+                    className={`px-3 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                      isSelected && isEnabled
+                        ? 'bg-green-500 text-white shadow-md shadow-green-200'
+                        : isEnabled
+                        ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-50'
+                    }`}
+                  >
+                    {cert.name}
+                  </button>
+                );
+              })}
             </div>
             {certifications.length > 0 && (
               <div className="mt-3 space-y-1">

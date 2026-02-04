@@ -7,9 +7,11 @@ import { StudentProfile } from '../App';
 interface AcademicProfileProps {
   favoriteIds: string[];
   onToggleFavorite: (id: string) => void;
+  currency: string;
+  onCurrencyChange: (currency: string) => void;
 }
 
-export function AcademicProfile({ favoriteIds, onToggleFavorite }: AcademicProfileProps) {
+export function AcademicProfile({ favoriteIds, onToggleFavorite, currency, onCurrencyChange }: AcademicProfileProps) {
   const [studentProfile, setStudentProfile] = useState<StudentProfile | null>(null);
   const [showResults, setShowResults] = useState(false);
 
@@ -40,13 +42,14 @@ export function AcademicProfile({ favoriteIds, onToggleFavorite }: AcademicProfi
 
       {/* Main Content */}
       {!showResults ? (
-        <StudentForm onSubmit={handleSubmit} />
+        <StudentForm onSubmit={handleSubmit} currency={currency} onCurrencyChange={onCurrencyChange} />
       ) : (
         <UniversityResults 
           profile={studentProfile!} 
           onReset={handleReset}
           favoriteIds={favoriteIds}
           onToggleFavorite={onToggleFavorite}
+          currency={currency}
         />
       )}
 

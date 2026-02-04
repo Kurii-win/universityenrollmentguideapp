@@ -1,5 +1,6 @@
 import { University } from '../App';
 import { MapPin, DollarSign, Users, TrendingUp, CheckCircle, Star, Heart } from 'lucide-react';
+import { convertTuitionRange } from '../utils/currency';
 
 interface UniversityMatch extends University {
   matchScore: number;
@@ -11,9 +12,10 @@ interface UniversityCardProps {
   university: UniversityMatch;
   isFavorite?: boolean;
   onToggleFavorite?: (id: string) => void;
+  currency?: string;
 }
 
-export function UniversityCard({ university, isFavorite = false, onToggleFavorite }: UniversityCardProps) {
+export function UniversityCard({ university, isFavorite = false, onToggleFavorite, currency = 'USD' }: UniversityCardProps) {
   const getChanceColor = (chance: string) => {
     switch (chance) {
       case 'High':
@@ -32,6 +34,9 @@ export function UniversityCard({ university, isFavorite = false, onToggleFavorit
     if (score >= 60) return 'text-emerald-600';
     return 'text-orange-600';
   };
+
+  // Convert tuition range based on selected currency
+  const displayTuition = convertTuitionRange(university.tuitionRange, currency);
 
   return (
     <div className="bg-white rounded-3xl shadow-lg overflow-hidden relative">
@@ -103,7 +108,7 @@ export function UniversityCard({ university, isFavorite = false, onToggleFavorit
           <div className="flex items-center gap-1.5 text-xs bg-teal-50 px-2 py-1.5 rounded-lg">
             <DollarSign className="w-3.5 h-3.5 text-teal-600" />
             <span className="text-gray-700 truncate">
-              <strong>{university.tuitionRange}</strong>
+              <strong>{displayTuition}</strong>
             </span>
           </div>
         </div>

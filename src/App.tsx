@@ -34,6 +34,7 @@ type ActivePage = 'home' | 'compare' | 'match' | 'favorites' | 'login';
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [currency, setCurrency] = useState<string>('USD');
 
   const toggleFavorite = (id: string) => {
     if (favoriteIds.includes(id)) {
@@ -52,6 +53,8 @@ export default function App() {
             favoriteIds={favoriteIds}
             onToggleFavorite={toggleFavorite}
             onNavigateToLogin={() => setActivePage('login')}
+            currency={currency}
+            onCurrencyChange={setCurrency}
           />
         )}
         {activePage === 'compare' && (
@@ -64,12 +67,15 @@ export default function App() {
           <AcademicProfile 
             favoriteIds={favoriteIds}
             onToggleFavorite={toggleFavorite}
+            currency={currency}
+            onCurrencyChange={setCurrency}
           />
         )}
         {activePage === 'favorites' && (
           <Favorites 
             favoriteIds={favoriteIds}
             onToggleFavorite={toggleFavorite}
+            currency={currency}
           />
         )}
         {activePage === 'login' && (

@@ -12,9 +12,10 @@ interface UniversityMatch extends University {
 interface FavoritesProps {
   favoriteIds: string[];
   onToggleFavorite: (id: string) => void;
+  currency: string;
 }
 
-export function Favorites({ favoriteIds, onToggleFavorite }: FavoritesProps) {
+export function Favorites({ favoriteIds, onToggleFavorite, currency }: FavoritesProps) {
   const universities = getUniversities();
   
   // Filter to get only favorited universities
@@ -64,6 +65,7 @@ export function Favorites({ favoriteIds, onToggleFavorite }: FavoritesProps) {
               university={uni}
               isFavorite={true}
               onToggleFavorite={onToggleFavorite}
+              currency={currency}
             />
           ))}
         </div>

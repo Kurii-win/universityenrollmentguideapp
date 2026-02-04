@@ -9,6 +9,7 @@ interface UniversityResultsProps {
   onReset: () => void;
   favoriteIds: string[];
   onToggleFavorite: (id: string) => void;
+  currency: string;
 }
 
 interface UniversityMatch extends University {
@@ -17,7 +18,7 @@ interface UniversityMatch extends University {
   admissionChance: 'High' | 'Medium' | 'Low';
 }
 
-export function UniversityResults({ profile, onReset, favoriteIds, onToggleFavorite }: UniversityResultsProps) {
+export function UniversityResults({ profile, onReset, favoriteIds, onToggleFavorite, currency }: UniversityResultsProps) {
   const [matches, setMatches] = useState<UniversityMatch[]>([]);
 
   useEffect(() => {
@@ -352,6 +353,7 @@ export function UniversityResults({ profile, onReset, favoriteIds, onToggleFavor
               university={uni}
               isFavorite={favoriteIds.includes(uni.id)}
               onToggleFavorite={onToggleFavorite}
+              currency={currency}
             />
           ))}
         </div>
