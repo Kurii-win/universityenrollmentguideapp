@@ -4,6 +4,7 @@ import { UniversityCard } from './UniversityCard';
 import { University } from '../App';
 import { useState, useEffect } from 'react';
 import { currencies } from '../utils/currency';
+import { ProfileDropdown } from './ProfileDropdown';
 
 interface UniversityMatch extends University {
   matchScore: number;
@@ -17,9 +18,13 @@ interface HomePageProps {
   onNavigateToLogin: () => void;
   currency: string;
   onCurrencyChange: (currency: string) => void;
+  isUserLoggedIn?: boolean;
+  userName?: string;
+  onSettings?: () => void;
+  onLogout?: () => void;
 }
 
-export function HomePage({ favoriteIds, onToggleFavorite, onNavigateToLogin, currency, onCurrencyChange }: HomePageProps) {
+export function HomePage({ favoriteIds, onToggleFavorite, onNavigateToLogin, currency, onCurrencyChange, isUserLoggedIn = false, userName = '', onSettings, onLogout }: HomePageProps) {
   const [featuredUniversities, setFeaturedUniversities] = useState<UniversityMatch[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -91,19 +96,23 @@ export function HomePage({ favoriteIds, onToggleFavorite, onNavigateToLogin, cur
   return (
     <div>
       {/* Header */}
-      <div className="text-center mb-6 relative">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <GraduationCap className="w-10 h-10 text-green-600" />
-          <h1 className="text-3xl font-bold text-gray-900">EduPathway</h1>
+      <div className="mb-6">
+        <div className="flex items-center justify-between mb-3">
+          {/* Logo and Title */}
+          <div className="flex items-center gap-2">
+            <GraduationCap className="w-10 h-10 text-green-600" />
+            <h1 className="text-3xl font-bold text-gray-900">EduPathway</h1>
+          </div>
+          
+          {/* Profile/Login Button */}
+          <ProfileDropdown
+            onNavigateToLogin={onNavigateToLogin}
+            isUserLoggedIn={isUserLoggedIn}
+            userName={userName}
+            onSettings={onSettings}
+            onLogout={onLogout}
+          />
         </div>
-        
-        {/* Profile/Login Icon Button - Absolute positioned at top right */}
-        <button
-          onClick={onNavigateToLogin}
-          className="absolute top-0 right-0 bg-white rounded-full p-2.5 shadow-lg hover:shadow-xl transition-all hover:scale-110 active:scale-95 border border-gray-200"
-        >
-          <User className="w-5 h-5 text-gray-700" />
-        </button>
         
         {/* Search Bar */}
         <div className="relative px-4">

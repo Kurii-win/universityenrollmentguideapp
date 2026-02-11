@@ -5,21 +5,38 @@ interface LoginProps {
   onBack: () => void;
   onSwitchToSignUp: () => void;
   onAdminLogin: (universityId: string) => void;
+  onUserLogin: (name: string, email: string) => void;
 }
 
 type LoginMode = 'user' | 'admin';
 
-export function Login({ onBack, onSwitchToSignUp, onAdminLogin }: LoginProps) {
+export function Login({ onBack, onSwitchToSignUp, onAdminLogin, onUserLogin }: LoginProps) {
   const [loginMode, setLoginMode] = useState<LoginMode>('user');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleUserLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle user login logic here
-    console.log('User login attempt:', { email, password });
-    alert('Login successful!');
-    onBack();
+    
+    // Demo account for testing
+    const demoAccount = {
+      email: 'lululemon@gmail.com',
+      password: 'lululemon',
+      name: 'Lulu Lemon'
+    };
+    
+    // Check if it's the demo account
+    if (email === demoAccount.email && password === demoAccount.password) {
+      alert('Login successful!');
+      onUserLogin(demoAccount.name, email);
+      onBack();
+    } else {
+      // For other accounts, allow login anyway for demo purposes
+      alert('Login successful!');
+      const userName = email.split('@')[0]; // Use email prefix as name
+      onUserLogin(userName, email);
+      onBack();
+    }
   };
 
   const handleAdminLogin = (e: React.FormEvent) => {

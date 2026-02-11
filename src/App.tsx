@@ -6,6 +6,7 @@ import { Favorites } from './components/Favorites';
 import { Login } from './components/Login';
 import { SignUp } from './components/SignUp';
 import { AdminDashboard } from './components/Admin/AdminDashboard';
+import { AccountSettings } from './components/AccountSettings';
 import { Home, GitCompare, Target, Heart } from 'lucide-react';
 
 export interface StudentProfile {
@@ -31,13 +32,20 @@ export interface University {
   intakePeriods?: string[];
 }
 
-type ActivePage = 'home' | 'compare' | 'match' | 'favorites' | 'login' | 'signup' | 'adminDashboard';
+interface UserData {
+  name: string;
+  email: string;
+}
+
+type ActivePage = 'home' | 'compare' | 'match' | 'favorites' | 'login' | 'signup' | 'adminDashboard' | 'settings';
 
 export default function App() {
   const [activePage, setActivePage] = useState<ActivePage>('home');
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [currency, setCurrency] = useState<string>('USD');
   const [authenticatedUniversityId, setAuthenticatedUniversityId] = useState<string | null>(null);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [userData, setUserData] = useState<UserData>({ name: '', email: '' });
 
   const toggleFavorite = (id: string) => {
     if (favoriteIds.includes(id)) {
@@ -57,8 +65,25 @@ export default function App() {
     setActivePage('home');
   };
 
-  // Check if currently in admin mode
+  const handleUserLogin = (name: string, email: string) => {
+    setIsUserLoggedIn(true);
+    setUserData({ name, email });
+  };
+
+  const handleUserSignUp = (name: string, email: string) => {
+    setIsUserLoggedIn(true);
+    setUserData({ name, email });
+  };
+
+  const handleUserLogout = () => {
+    setIsUserLoggedIn(false);
+    setUserData({ name: '', email: '' });
+    setActivePage('home');
+  };
+
+  // Check if currently in admin mode or settings mode
   const isAdminMode = activePage === 'adminDashboard';
+  const isSettingsMode = activePage === 'settings';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 pb-20">
@@ -71,6 +96,10 @@ export default function App() {
             onNavigateToLogin={() => setActivePage('login')}
             currency={currency}
             onCurrencyChange={setCurrency}
+            isUserLoggedIn={isUserLoggedIn}
+            userName={userData.name}
+            onSettings={() => setActivePage('settings')}
+            onLogout={handleUserLogout}
           />
         )}
         {activePage === 'compare' && (
@@ -99,6 +128,7 @@ export default function App() {
             onBack={() => setActivePage('home')}
             onSwitchToSignUp={() => setActivePage('signup')}
             onAdminLogin={handleAdminLogin}
+            onUserLogin={handleUserLogin}
           />
         )}
         {activePage === 'signup' && (
@@ -106,12 +136,20 @@ export default function App() {
             onBack={() => setActivePage('home')}
             onSwitchToLogin={() => setActivePage('login')}
             onAdminLogin={handleAdminLogin}
+            onUserSignUp={handleUserSignUp}
           />
         )}
         {activePage === 'adminDashboard' && (
           <AdminDashboard 
             onLogout={handleAdminLogout}
             universityId={authenticatedUniversityId || undefined}
+          />
+        )}
+        {activePage === 'settings' && (
+          <AccountSettings 
+            onBack={() => setActivePage('home')}
+            userData={userData}
+            onUserDataChange={setUserData}
           />
         )}
       </div>

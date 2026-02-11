@@ -5,9 +5,10 @@ interface SignUpProps {
   onBack: () => void;
   onSwitchToLogin: () => void;
   onAdminLogin: (universityId: string) => void;
+  onUserSignUp: (name: string, email: string) => void;
 }
 
-export function SignUp({ onBack, onSwitchToLogin, onAdminLogin }: SignUpProps) {
+export function SignUp({ onBack, onSwitchToLogin, onAdminLogin, onUserSignUp }: SignUpProps) {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -33,6 +34,7 @@ export function SignUp({ onBack, onSwitchToLogin, onAdminLogin }: SignUpProps) {
     console.log('Sign up data:', formData);
     alert('Account created successfully!');
     onSwitchToLogin();
+    onUserSignUp(formData.fullName, formData.email);
   };
 
   const handleChange = (field: string, value: string) => {
